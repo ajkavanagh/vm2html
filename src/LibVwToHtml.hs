@@ -1,11 +1,8 @@
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleContexts     #-}
 {-# LANGUAGE LambdaCase           #-}
 {-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE QuasiQuotes          #-}
 
 
-module LibVps ( vw2html ) where
+module LibVwToHtml ( vw2html ) where
 
 -- for Pandoc processing
 import qualified Data.Text                 as T

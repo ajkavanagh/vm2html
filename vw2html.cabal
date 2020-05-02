@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d387b398681f3b2754a4d9b9bb2a99b7c2e2877278728704aa49fb5785df261c
+-- hash: f24d4ee1fdc5b2100fb5b8fc675dc64e269c719f3145b2cb68d99c7b11d96c2d
 
 name:           vw2html
 version:        0.1.0.0
@@ -29,7 +29,7 @@ library
   exposed-modules:
       Lib
       LibPandoc
-      LibVps
+      LibVwToHtml
   other-modules:
       Paths_vw2html
   hs-source-dirs:

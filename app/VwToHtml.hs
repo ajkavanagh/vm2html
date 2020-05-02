@@ -1,11 +1,11 @@
 module VwToHtml where
 
-import System.Environment (getArgs)
+import           System.Environment (getArgs)
 
-import Control.Monad (when)
+import           Control.Monad      (when)
 
-import LibVps (vw2html)
-import Lib (debugArgs, isDebug)
+import           Lib                (debugArgs, isDebug)
+import           LibVwToHtml        (vw2html)
 
 
 main :: IO ()
