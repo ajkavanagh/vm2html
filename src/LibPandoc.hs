@@ -5,7 +5,9 @@
 {-# LANGUAGE QuasiQuotes          #-}
 
 
-module LibPandoc where
+module LibPandoc
+    ( convertVimWikiLinks
+    ) where
 
 
 

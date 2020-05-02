@@ -1,42 +1,39 @@
 {-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE QuasiQuotes #-}
-{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleContexts     #-}
+{-# LANGUAGE LambdaCase           #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE QuasiQuotes          #-}
 
 
 module LibVps ( vw2html ) where
 
 -- for Pandoc processing
-import qualified Data.Text as T
-import qualified Data.Text.IO as TIO
-import           Data.Text.Titlecase (titlecase)
-import qualified Text.Pandoc as TP
+import qualified Data.Text                 as T
+import qualified Data.Text.IO              as TIO
+import           Data.Text.Titlecase       (titlecase)
+import qualified Text.Pandoc               as TP
 
 -- for system environment, etc.
-import System.Directory (doesFileExist)
-import System.Environment (getProgName)
-import System.FilePath (FilePath, (</>), (<.>), takeBaseName)
+import           System.Directory          (doesFileExist)
+import           System.Environment        (getProgName)
+import           System.FilePath           (FilePath, takeBaseName, (<.>),
+                                            (</>))
 
 -- monad related stuff
-import Control.Monad (when)
+import           Control.Monad             (when)
 
 -- for optparse
-import Data.Semigroup ((<>))
-import Options.Applicative
-import Options.Applicative.Types (ReadM, readerAsk)
+import           Data.Semigroup            ((<>))
+import           Options.Applicative
+import           Options.Applicative.Types (ReadM, readerAsk)
 
 -- local library
-import Lib ( isMarkDownStr
-           , isMarkDownFile
-           , strToLower
-           , validateWithTests
-           , printIfDoesntExist
-           , validateFileExists
-           , isDebug
-           )
+import           Lib                       (isDebug, isMarkDownFile,
+                                            isMarkDownStr, printIfDoesntExist,
+                                            strToLower, validateFileExists,
+                                            validateWithTests)
 
-import LibPandoc (convertVimWikiLinks)
+import           LibPandoc                 (convertVimWikiLinks)
 
 
 vw2html :: IO ()
@@ -149,17 +146,17 @@ templateFilePath args = templatePathArg args
 --  $VIMHOME/autoload/vimwiki/customwiki2html.sh
 
 data VimwikiSingleFileCliArgs = VimwikiSingleFileCliArgs
-    { forceArg :: !Bool
-    , syntaxArg :: !String
-    , extensionArg :: !String
-    , outputDirArg :: !String
-    , inputFileArg :: !String
-    , cssFileArg :: !String
-    , templatePathArg :: !String
-    , templateNameArg :: !String
+    { forceArg             :: !Bool
+    , syntaxArg            :: !String
+    , extensionArg         :: !String
+    , outputDirArg         :: !String
+    , inputFileArg         :: !String
+    , cssFileArg           :: !String
+    , templatePathArg      :: !String
+    , templateNameArg      :: !String
     , templateExtensionArg :: !String
-    , rootPathArg :: !String
-    , extraArgs :: ![String]
+    , rootPathArg          :: !String
+    , extraArgs            :: ![String]
     }
     deriving Show
 
