@@ -54,7 +54,6 @@ runPanDoc :: VimwikiSingleFileCliArgs -> IO ()
 runPanDoc args = do
     -- read the source file
     text <- TIO.readFile $ inputFileArg args
-    -- process it for wikilinks -- turn them into markdown links
     -- create the writer options, including the template
     writerOptions <- pandocHtmlArgs args
     -- parse the markdown and then convert to HTML5 document
