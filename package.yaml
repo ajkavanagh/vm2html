@@ -1,0 +1,63 @@
+name:                vw2html
+version:             0.1.0.0
+github:              "ajkavanagh/vm2html"
+license:             BSD3
+author:              "Alex Kavanagh"
+copyright:           "(c) AJKavanagh"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/ajkavanagh/vw2html#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - directory
+    - filepath
+    - optparse-applicative
+    - parsec
+    - parser-combinators
+    - pandoc
+    - pandoc-types
+    - text
+    #- time
+    - titlecase
+  default-extensions: []
+
+executables:
+  vw2html:
+    main:                VwToHtml.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is VwToHtml
+    - -O2
+    dependencies:
+    - vw2html
+    default-extensions: []
+
+tests:
+  vw2html-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hspec
+    - vw2html

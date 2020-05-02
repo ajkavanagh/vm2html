@@ -1,0 +1,74 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: d387b398681f3b2754a4d9b9bb2a99b7c2e2877278728704aa49fb5785df261c
+
+name:           vw2html
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/ajkavanagh/vw2html#readme>
+homepage:       https://github.com/ajkavanagh/vm2html#readme
+bug-reports:    https://github.com/ajkavanagh/vm2html/issues
+author:         Alex Kavanagh
+maintainer:     Alex Kavanagh
+copyright:      (c) AJKavanagh
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/ajkavanagh/vm2html
+
+library
+  exposed-modules:
+      Lib
+      LibPandoc
+      LibVps
+  other-modules:
+      Paths_vw2html
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , directory
+    , filepath
+    , optparse-applicative
+    , pandoc
+    , pandoc-types
+    , parsec
+    , parser-combinators
+    , text
+    , titlecase
+  default-language: Haskell2010
+
+executable vw2html
+  main-is: VwToHtml.hs
+  other-modules:
+      Paths_vw2html
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -main-is VwToHtml -O2
+  build-depends:
+      base >=4.7 && <5
+    , vw2html
+  default-language: Haskell2010
+
+test-suite vw2html-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_vw2html
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , vw2html
+  default-language: Haskell2010
